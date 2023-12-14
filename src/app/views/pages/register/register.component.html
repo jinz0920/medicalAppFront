@@ -1,0 +1,113 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col lg="7" md="9" xl="6">
+        <c-card class="mx-6">
+          <c-card-body class="p-4">
+            <h2>BIENVENUE</h2>
+            <c-form-check inline>
+              <input cFormCheckInput id="radioinline1" name="radioinline" type="radio" value="medecin" (click)="setValue('medecin')"/>
+              <label cFormCheckLabel for="radioinline1">Médecin</label>
+            </c-form-check>
+            <c-form-check inline>
+              <input cFormCheckInput id="radioinline2" name="radioinline" type="radio" (click)="setValue('patient')"/>
+              <label cFormCheckLabel for="radioinline2">Patient</label>
+            </c-form-check>
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+              <p class="text-medium-emphasis">Créer votre compte</p>
+              <c-input-group class="mb-3">
+                <label class="input-group-text" for="genre"><svg cIcon name="cilUserFollow"></svg></label>
+                <select class="form-select" id="genre" name="genre" formControlName="gender">
+                  <option value="homme">Homme</option>
+                  <option value="femme">Femme</option>
+                </select>
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilUser"></svg>
+                </span>
+                <input formControlName="lastName" placeholder="Nom" />
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilUser"></svg>
+                </span>
+                <input
+                formControlName="firstName"
+                  placeholder="Prénom"
+                />
+              </c-input-group>
+              <c-input-group class="mb-3" *ngIf="selectedRole=='medecin'">
+                <span cInputGroupText>
+                  <svg cIcon name="cilListNumbered"></svg>
+                </span>
+                <input
+                formControlName="cin"
+                  placeholder="CIN"            
+                />
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilBell"></svg>
+                </span>
+                <input
+                formControlName="phone"
+                  placeholder="Téléphone"
+                  name="telephone"
+                />
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>&#64;</span>
+                <input autoComplete="email" formControlName="email" placeholder="Email" />
+              </c-input-group>
+
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilCalendar"></svg>
+                </span>
+                <input
+                formControlName="birthdate"
+                  type="date"
+                  placeholder="Date de Naissance"
+                  name="dateNaissance"
+                />
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilLockLocked"></svg>
+                </span>
+                <input
+                  autoComplete="new-password"
+                  formControlName="password"
+                  placeholder="Password"
+                  type="password"
+                />
+              </c-input-group>
+              <c-input-group class="mb-4">
+                <span cInputGroupText>
+                  <svg cIcon name="cilLockLocked"></svg>
+                </span>
+                <input
+                  autoComplete="new-password"
+                  placeholder="Repeat password"
+                  type="password"
+                />
+              </c-input-group>
+              <div class="d-grid">
+                <button cButton color="success" type="submit">S'inscrire</button>
+                <div class="d-flex justify-content-between">
+                  <c-col class="text-left" xs="6">
+                    Vous avez déjà un compte?
+                  </c-col>
+                  <c-col xs="6">
+                    <a href="#/login">Se connecter</a>
+                  </c-col>
+                </div>
+              </div>
+            </form>
+          </c-card-body>
+        </c-card>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>
