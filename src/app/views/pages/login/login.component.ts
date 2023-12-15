@@ -30,10 +30,8 @@ export class LoginComponent {
       localStorage.setItem('id', response.data.id);
       localStorage.setItem('role', response.data.role);
       res = await response.data;
-      this.router.navigate(['/dashbord']);
-    } catch (error: any) {
-      console.log('haha')
-    }
+      this.router.navigate(['theme/colors']);
+    } catch (error: any) {}
 
     if (res == null) {
       try {

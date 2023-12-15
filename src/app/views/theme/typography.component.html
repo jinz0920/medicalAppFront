@@ -1,31 +1,25 @@
-<form cForm>
+<form cForm [formGroup]="myForm" (ngSubmit)="onSubmit()" class="p-4">
   <div class="mb-3">
-    <c-input-group class="mb-3">
-      <span cInputGroupText>
+    <div class="input-group mb-3">
+      <span class="input-group-text">
         <svg cIcon name="cilCalendar"></svg>
       </span>
-      <input
-        type="date"
-      />
-    </c-input-group>
-    <c-input-group class="mb-3">
-      <span cInputGroupText>
+      <input formControlName="date" type="date" class="form-control" />
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">
         <svg cIcon name="cilCalendar"></svg>
       </span>
-      <input
-        type="time"
-      />
-    </c-input-group>
+      <input formControlName="hour" type="time" class="form-control" />
+    </div>
   </div>
   <div class="mb-3">
-    <label cLabel for="exampleFormControlInput2">Raison</label>
-    <input
-      cFormControl
-      id="exampleFormControlInput2"
-    />
+    <label cLabel for="exampleFormControlInput2" class="form-label">Raison</label>
+    <input formControlName="typofillness" id="exampleFormControlInput2" class="form-control" />
   </div>
   <div class="mb-3">
-    <label cLabel for="exampleFormControlTextarea1">Descrition</label>
-    <textarea cFormControl id="exampleFormControlTextarea1" rows="3"></textarea>
+    <label cLabel for="exampleFormControlTextarea1" class="form-label">Description</label>
+    <textarea formControlName="description" id="exampleFormControlTextarea1" rows="3" class="form-control"></textarea>
   </div>
+  <button cButton color="secondary" size="lg" shape="rounded-pill" variant="ghost" type="submit">Validez votre RDV</button>
 </form>

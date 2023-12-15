@@ -1,23 +1,14 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
-import { BehaviorSubject } from 'rxjs';
-
-@Injectable({
-  providedIn: 'root',
-})
+import { SharedValueService } from './shared-value.service';
 
 @Component({
   templateUrl: 'colors.component.html',
 })
 export class ColorsComponent implements OnInit {
   public users: any[] = [];
+  constructor(private sharedValueService: SharedValueService) {}
 
-  private sharedValueSource = new BehaviorSubject<number>(0);
-  sharedValue$ = this.sharedValueSource.asObservable();
-
-  updateSharedValue(newValue: number) {
-    this.sharedValueSource.next(newValue);
-  }
   ngOnInit(): void {
     this.fetchDataListMedecin();
   }
@@ -27,5 +18,10 @@ export class ColorsComponent implements OnInit {
     const response = await axios.get(apiUrl);
     this.users = await response.data;
     console.log(this.users);
+  }
+
+  handleClick(id: number) {
+    this.sharedValueService.updateSharedValue(id);
+    window.location.href = '#/theme/typography#someAnchor';
   }
 }

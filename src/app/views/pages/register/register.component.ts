@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import axios from 'axios';
-import { forEach } from 'lodash-es';
+
 
 @Component({
   selector: 'app-register',
@@ -75,15 +75,15 @@ export class RegisterComponent implements OnInit {
     } else {
 
       axios.post(apiUrlPatient, formData)
-        .then(function (response: any) {
-          console.log(response);
-          localStorage.setItem('id', response.data.id);
-          localStorage.setItem('role', response.data.role);
-          window.location.href = '#/dashbord';
-        })
-        .catch(function (error: any) {
-          console.log('patient ', error);
-        });
+      .then(function (response: any) {
+        console.log(response);
+        localStorage.setItem('id', response.data.id);
+        localStorage.setItem('role', response.data.role);
+        window.location.href = '#/theme/colors';
+      })
+      .catch(function (error: any) {
+        console.log('patient ',error);
+      });
     }
   }
 }

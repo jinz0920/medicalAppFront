@@ -1,3 +1,4 @@
+import { DetailRdvComponent } from './detail-rdv.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
@@ -8,6 +9,7 @@ import {
   UtilitiesModule,
   TabsModule,
   FormModule,
+  ButtonModule
 } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
 
@@ -17,6 +19,7 @@ import { TypographyComponent } from './typography.component';
 // Theme Routing
 import { ThemeRoutingModule } from './theme-routing.module';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { RdvMedecinComponent } from './rdv-medecin.component';
 
 @NgModule({
   imports: [
@@ -26,12 +29,13 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
     GridModule,
     UtilitiesModule,
     IconModule,
+    ButtonModule,
     NavModule,
     TabsModule,
     ReactiveFormsModule,
     FormsModule,
     FormModule,
   ],
-  declarations: [ColorsComponent, TypographyComponent],
+  declarations: [ColorsComponent, TypographyComponent,RdvMedecinComponent,DetailRdvComponent],
 })
 export class ThemeModule {}
