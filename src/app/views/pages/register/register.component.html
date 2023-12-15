@@ -6,11 +6,12 @@
           <c-card-body class="p-4">
             <h2>BIENVENUE</h2>
             <c-form-check inline>
-              <input cFormCheckInput id="radioinline1" name="radioinline" type="radio" value="medecin" (click)="setValue('medecin')"/>
+              <input cFormCheckInput id="radioinline1" name="radioinline" type="radio" value="medecin"
+                (click)="setValue('medecin')" />
               <label cFormCheckLabel for="radioinline1">Médecin</label>
             </c-form-check>
             <c-form-check inline>
-              <input cFormCheckInput id="radioinline2" name="radioinline" type="radio" (click)="setValue('patient')"/>
+              <input cFormCheckInput id="radioinline2" name="radioinline" type="radio" (click)="setValue('patient')" />
               <label cFormCheckLabel for="radioinline2">Patient</label>
             </c-form-check>
             <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
@@ -22,6 +23,13 @@
                   <option value="femme">Femme</option>
                 </select>
               </c-input-group>
+
+                <c-input-group class="mb-3" *ngIf="selectedRole=='medecin'">
+                  <label class="input-group-text" for="specialite"><svg cIcon name="cilUserFollow"></svg></label>
+                  <select class="form-select" id="specialitie" name="specialitie" formControlName="specialite" >
+                    <option *ngFor="let spec of specialities"  [value]='spec.name'>{{spec.name}}</option>
+                  </select>
+                </c-input-group>
               <c-input-group class="mb-3">
                 <span cInputGroupText>
                   <svg cIcon name="cilUser"></svg>
@@ -32,66 +40,57 @@
                 <span cInputGroupText>
                   <svg cIcon name="cilUser"></svg>
                 </span>
-                <input
-                formControlName="firstName"
-                  placeholder="Prénom"
-                />
+                <input formControlName="firstName" placeholder="Prénom" />
               </c-input-group>
               <c-input-group class="mb-3" *ngIf="selectedRole=='medecin'">
                 <span cInputGroupText>
                   <svg cIcon name="cilListNumbered"></svg>
                 </span>
-                <input
-                formControlName="cin"
-                  placeholder="CIN"            
-                />
+                <input formControlName="cin" placeholder="CIN" />
               </c-input-group>
+
               <c-input-group class="mb-3">
                 <span cInputGroupText>
                   <svg cIcon name="cilBell"></svg>
                 </span>
-                <input
-                formControlName="phone"
-                  placeholder="Téléphone"
-                  name="telephone"
-                />
+                <input formControlName="phone" placeholder="Téléphone" name="telephone" />
               </c-input-group>
               <c-input-group class="mb-3">
                 <span cInputGroupText>&#64;</span>
                 <input autoComplete="email" formControlName="email" placeholder="Email" />
               </c-input-group>
 
+              <c-input-group class="mb-3" *ngIf="selectedRole=='medecin'">
+                <span cInputGroupText>
+                  <svg cIcon name="cilListNumbered"></svg>
+                </span>
+                <input formControlName="rate" placeholder="Tarif" />
+              </c-input-group>
+
               <c-input-group class="mb-3">
                 <span cInputGroupText>
                   <svg cIcon name="cilCalendar"></svg>
                 </span>
-                <input
-                formControlName="birthdate"
-                  type="date"
-                  placeholder="Date de Naissance"
-                  name="dateNaissance"
-                />
+                <input formControlName="birthdate" type="date" placeholder="Date de Naissance" name="dateNaissance" />
               </c-input-group>
+
+              <c-input-group class="mb-3">
+                <span cInputGroupText>&#64;</span>
+                <textarea formControlName="address" placeholder="Adresse" name="address"></textarea>
+              </c-input-group>
+
+
               <c-input-group class="mb-3">
                 <span cInputGroupText>
                   <svg cIcon name="cilLockLocked"></svg>
                 </span>
-                <input
-                  autoComplete="new-password"
-                  formControlName="password"
-                  placeholder="Password"
-                  type="password"
-                />
+                <input autoComplete="new-password" formControlName="password" placeholder="Password" type="password" />
               </c-input-group>
               <c-input-group class="mb-4">
                 <span cInputGroupText>
                   <svg cIcon name="cilLockLocked"></svg>
                 </span>
-                <input
-                  autoComplete="new-password"
-                  placeholder="Repeat password"
-                  type="password"
-                />
+                <input autoComplete="new-password" placeholder="Repeat password" type="password" />
               </c-input-group>
               <div class="d-grid">
                 <button cButton color="success" type="submit">S'inscrire</button>

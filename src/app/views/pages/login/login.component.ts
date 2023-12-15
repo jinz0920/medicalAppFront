@@ -31,7 +31,9 @@ export class LoginComponent {
       localStorage.setItem('role', response.data.role);
       res = await response.data;
       this.router.navigate(['/dashbord']);
-    } catch (error: any) {}
+    } catch (error: any) {
+      console.log('haha')
+    }
 
     if (res == null) {
       try {
