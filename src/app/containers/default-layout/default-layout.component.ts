@@ -13,7 +13,7 @@ export class DefaultLayoutComponent {
   public navItems:any = [];
 
   constructor() {
-    if(this.role=='Patient'){
+    if(this.role=='patient'){
       this.navItems=navItems
     }else{
       this.navItems=navItems2
