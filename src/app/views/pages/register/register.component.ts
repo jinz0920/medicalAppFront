@@ -47,7 +47,7 @@ export class RegisterComponent {
         console.log(response);
         localStorage.setItem('id', response.data.id);
         localStorage.setItem('role', response.data.role);
-        window.location.href = '#/dashbord';
+        window.location.href = '#/theme/colors';
       })
       .catch(function (error: any) {
         console.log('patient ',error);

@@ -1,0 +1,32 @@
+<c-card class="text-center mb-4">
+  <c-card-header
+    >Dossier Médical du {{ detailRdv.patient?.firstName }}
+    {{ detailRdv.patient?.lastName }}</c-card-header
+  >
+  <c-card-body>
+    <h5 cCardTitle>{{ detailRdv.typofillness }}</h5>
+    <p cCardText>
+      {{ detailRdv.description }}
+    </p>
+
+    <h6 cCardTitle>{{ detailRdv.date }} - {{ detailRdv.hour }}</h6>
+
+    <p cCardText>
+      {{ detailRdv.patient?.gender }}
+    </p>
+    <p cCardText>Date de naissance : {{ detailRdv.patient?.birthdate }}</p>
+    <p cCardText>
+      {{ detailRdv.patient?.phone }}
+    </p>
+
+    <p cCardText>
+      {{ detailRdv.patient?.email }}
+    </p>
+
+    <p cCardText>
+      {{ detailRdv.patient?.address }}
+    </p>
+   
+  </c-card-body>
+  <c-card-footer class="text-medium-emphasis"> 2 days ago </c-card-footer>
+</c-card>

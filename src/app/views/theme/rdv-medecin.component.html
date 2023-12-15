@@ -1,0 +1,36 @@
+<table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th>Raison</th>
+      <th>Date</th>
+      <th>Heure</th>
+      <th>Message</th>
+      <th>Détails</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of rdv">
+      <td>
+        <span class="fw-normal mb-1">{{ user.typofillness }}</span>
+      </td>
+      <td>
+        <span class="fw-normal mb-1">{{ user.date }}</span>
+      </td>
+      <td>{{ user.hour }}</td>
+      <td>
+        <span class="fw-normal mb-1">{{ user.description }}</span>
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-link btn-rounded btn-sm fw-bold"
+          mdbRipple
+          rippleColor="dark"
+          (click)="handleClick(user.id)"
+        >
+          Voir
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

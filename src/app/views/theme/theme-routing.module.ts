@@ -1,8 +1,10 @@
+import { RdvMedecinComponent } from './rdv-medecin.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ColorsComponent } from './colors.component';
 import { TypographyComponent } from './typography.component';
+import { DetailRdvComponent } from './detail-rdv.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,20 @@ const routes: Routes = [
         component: ColorsComponent,
         data: {
           title: 'Colors',
+        },
+      },
+      {
+        path: 'rdvMedecin',
+        component: RdvMedecinComponent,
+        data: {
+          title: 'RdvMedecin',
+        },
+      },
+      {
+        path: 'detailRdv',
+        component: DetailRdvComponent,
+        data: {
+          title: 'detailRdv',
         },
       },
       {
